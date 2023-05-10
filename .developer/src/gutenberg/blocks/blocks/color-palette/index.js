@@ -1,6 +1,8 @@
 import { ColorPalette } from "@wordpress/block-editor";
 import { __ } from "@wordpress/i18n";
 import { registerBlockType } from "@wordpress/blocks";
+import { useState } from "@wordpress/element";
+
 // Registra el bloque de la paleta de colores con los atributos color y colors
 registerBlockType("quadlayers/color-palette-block", {
   title: __("Color Palette Block", "gutenberg-examples"),
@@ -20,7 +22,8 @@ registerBlockType("quadlayers/color-palette-block", {
       ],
     },
   },
-  edit: ({ attributes, setAttributes }) => {
+  edit: (props) => {
+    const { attributes, setAttributes } = props;
     // Al editarlo, establece el atributo color con el que recibe en el evento
     const onChangeColor = (color) => {
       setAttributes({ color: color });
@@ -36,7 +39,7 @@ registerBlockType("quadlayers/color-palette-block", {
             height: 30,
           }}
         >
-          <span>This is the expected result</span>
+          <span>This is the expected result (Edit)</span>
         </div>
         <ColorPalette
           colors={attributes.colors}
@@ -49,23 +52,32 @@ registerBlockType("quadlayers/color-palette-block", {
     );
   },
   // Se hace destructuring para sacar los atributos color y colors para pasarselos al componente
-  save: ({ attributes: { color, colors } }) => {
+  save: (props) => {
+    const { attributes } = props;
+    // Al editarlo, establece el atributo color con el que recibe en el evento
+    const [color, setColor] = useState("");
+    const onChangeColor = (color) => {
+      setColor(color);
+    };
+
+    // Componente paleta de colores que recibe los colores totales y el color por defecto
     return (
       <div>
         <div
           style={{
-            backgroundColor: color,
+            backgroundColor: attributes.color,
             width: "90%",
             height: 30,
           }}
         >
-          <span>This is the expected result</span>
+          <span>This is the expected result (Save)</span>
         </div>
         <ColorPalette
-          colors={colors}
+          colors={attributes.colors}
           value={color}
           disableCustomColors={true}
           clearable={false}
+          onChange={onChangeColor}
         />
       </div>
     );

@@ -21,6 +21,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 // Registra el bloque de la paleta de colores con los atributos color y colors
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("quadlayers/color-palette-block", {
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Color Palette Block", "gutenberg-examples"),
@@ -64,7 +66,7 @@ __webpack_require__.r(__webpack_exports__);
         width: "90%",
         height: 30
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "This is the expected result")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "This is the expected result (Edit)")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
       colors: attributes.colors,
       value: attributes.color,
       disableCustomColors: true,
@@ -76,21 +78,28 @@ __webpack_require__.r(__webpack_exports__);
   save: _ref2 => {
     let {
       attributes: {
-        color,
         colors
       }
     } = _ref2;
+    // Al editarlo, establece el atributo color con el que recibe en el evento
+    const [color, setColor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+    const onChangeColor = color => {
+      setColor(color);
+    };
+
+    // Componente paleta de colores que recibe los colores totales y el color por defecto
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       style: {
-        backgroundColor: color,
+        backgroundColor: attributes.color,
         width: "90%",
         height: 30
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "This is the expected result")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "This is the expected result (Save)")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.ColorPalette, {
       colors: colors,
       value: color,
       disableCustomColors: true,
-      clearable: false
+      clearable: false,
+      onChange: onChangeColor
     }));
   }
 });
