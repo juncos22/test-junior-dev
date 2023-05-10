@@ -1,0 +1,81 @@
+/*
+Theme Name: QUADLAYERS
+Theme URI: http://www.quadlayers.com/quadlayers/
+Author: QuadLayers
+Author URI: https://www.quadlayers.com
+Description: Powerfull WordPress WooCommerce theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: quadlayers
+Tags: woocommerce, one-column, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, theme-options
+*/
+/*!
+ * Bootstrap Grid v4.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; 
+}
+
+/*# sourceMappingURL=style.css.map */
+html {
+  height: 95%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  position: relative;
+}
+header {
+  background-color: #000000;
+  border-bottom: 1px solid #555555;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.customizer-section {
+  text-align: center;
+}
+#customizer-quadlayers {
+  margin: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+.menu-header-menu-container {
+  display: flex;
+  align-items: center;
+}
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  list-style: none;
+  padding: 5px 20px;
+  display: inline-block;
+}
+.menu li a {
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: color .2s;
+}
+.menu li a:hover {
+  color: #ffffff;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
